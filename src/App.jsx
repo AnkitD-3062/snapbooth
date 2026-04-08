@@ -3,7 +3,6 @@ import LandingScreen from './components/LandingScreen'
 import BoothScreen from './components/BoothScreen'
 import ReviewScreen from './components/ReviewScreen'
 
-// App manages global screen state: 'landing' → 'booth' → 'review'
 export default function App() {
   const [screen, setScreen] = useState('landing')
   const [capturedPhotos, setCapturedPhotos] = useState([])
@@ -31,20 +30,22 @@ export default function App() {
 
   return (
     <div className="app">
-      {screen === 'landing' && (
-        <LandingScreen onStart={handleStartBooth} />
-      )}
-      {screen === 'booth' && (
-        <BoothScreen onComplete={handlePhotosDone} onHome={handleHome} />
-      )}
-      {screen === 'review' && (
-        <ReviewScreen
-          photos={capturedPhotos}
-          filter={selectedFilter}
-          onRetake={handleRetake}
-          onHome={handleHome}
-        />
-      )}
+      <div className={`screen-shell screen-${screen}`} key={screen}>
+        {screen === 'landing' && (
+          <LandingScreen onStart={handleStartBooth} />
+        )}
+        {screen === 'booth' && (
+          <BoothScreen onComplete={handlePhotosDone} onHome={handleHome} />
+        )}
+        {screen === 'review' && (
+          <ReviewScreen
+            photos={capturedPhotos}
+            filter={selectedFilter}
+            onRetake={handleRetake}
+            onHome={handleHome}
+          />
+        )}
+      </div>
     </div>
   )
 }
