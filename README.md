@@ -2,6 +2,12 @@
 
 SnapBooth is a browser-based digital photo booth built with React and Vite. It gives users a lightweight studio-style flow: open the camera, capture a four-shot sequence, apply a mood filter, and export a polished photo strip.
 
+## Preview
+
+![SnapBooth desktop preview](./.github/assets/snapbooth-home-desktop.png)
+
+![SnapBooth mobile preview](./.github/assets/snapbooth-home-mobile.png)
+
 ## Highlights
 
 - Live camera preview with in-browser capture
